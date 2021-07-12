@@ -103,7 +103,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getUserpw());
 			pstmt.setString(2, dto.getEmail());
-			pstmt.setInt(1, dto.getMemberno());
+			pstmt.setInt(3, dto.getMemberno());
 
 			pstmt.executeUpdate();
 
@@ -174,7 +174,7 @@ public class MemberDAO {
 		Connection conn = getConnection();
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("select memberno, userid, userpw, name, email, redate  from member ");
+		sql.append("select *  from member ");
 		
 		ResultSet rs = null;
 		
