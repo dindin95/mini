@@ -74,23 +74,27 @@ public class MemberUI {
 					if (arr.get(i).getUserid() == userid) {
 
 						arr.set(i, dto);
-
-					} else {
-						System.out.println("존재하지 않는 아이디 입니다");
-					}
-					System.out.println("계속 입력하시겠습니까");
-					String yn = scanner.nextLine();
-
-					if ("n".equals(yn)) {
-
-						break;
-
 					}
 				}
+
+			} else {
+				System.out.println("존재하지 않는 아이디 입니다");
 			}
 
-		}
+			System.out.println("계속 입력하시겠습니까");
+			String yn = scanner.nextLine();
+
+			if ("n".equals(yn)) {
+
+				break;
+
+			}
+
+		}// while
+
 	}// modify
+
+	
 
 	public void remove(Scanner scanner) {
 
@@ -144,17 +148,15 @@ public class MemberUI {
 			}
 
 		}
-	}//selectOne
+	}// selectOne
 
-	
 	public void list(Scanner scanner) {
 		while (true) {
-			
-		ArrayList<MemberDTO> arrlist = new ArrayList<MemberDTO>();
-		arrlist = service.list();
-		
 
-			for(MemberDTO index:arrlist) {
+			ArrayList<MemberDTO> arrlist = new ArrayList<MemberDTO>();
+			arrlist = service.list();
+
+			for (MemberDTO index : arrlist) {
 				System.out.println("==============================");
 				System.out.println("번호 : " + index.getMemberno());
 				System.out.println("아이디 : " + index.getUserid());
@@ -163,7 +165,7 @@ public class MemberUI {
 				System.out.println("이메일 : " + index.getEmail());
 				System.out.println("가입일자 : " + index.getRedage());
 			}
-			
+
 			System.out.println("계속 입력하시겠습니까");
 			String yn = scanner.nextLine();
 
@@ -174,4 +176,4 @@ public class MemberUI {
 		}
 	}
 
-} //class
+} // class

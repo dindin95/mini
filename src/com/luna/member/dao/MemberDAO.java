@@ -94,16 +94,16 @@ public class MemberDAO {
 		Connection conn = getConnection();
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append(" update board set               ");
-		sql.append("                   userid = ?   ");
-		sql.append("                   email = ?    ");
-		sql.append(" where bno = ?                  ");
+		sql.append(" update member set               ");
+		sql.append("                   userpw = ?   ");
+		sql.append("                   ,email = ?    ");
+		sql.append(" where userid = ?               ");
 
 		try {
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getUserpw());
 			pstmt.setString(2, dto.getEmail());
-			pstmt.setInt(3, dto.getMemberno());
+			pstmt.setString(3, dto.getUserid());
 
 			pstmt.executeUpdate();
 
